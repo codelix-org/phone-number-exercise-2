@@ -17,7 +17,7 @@ bundle
 git checkout -b attempt-YOURNAMEHERE
 
 # Copy your code from exercise 1 (just lib, not spec) and commit
-cp -R ../phone-number-exercise-2/lib ./
+cp -R ../phone-number-exercise-1/lib ./
 git add .
 git commit -m 'add code from exercise 1'
 
