@@ -13,7 +13,7 @@ cd phone-number-exercise-2
 # Install dependencies
 bundle 
 
-# create branch (change YOURNAMEHERE)
+# create branch
 git checkout -b attempt-YOURNAMEHERE
 
 # Copy your code from exercise 1 (just lib, not spec) and commit
@@ -28,7 +28,7 @@ bundle exec rspec --format documentation
 ## Exercise instructions
 
 We added the code for the [happy path](https://en.wikipedia.org/wiki/Happy_path) for formatting the phone number in [exercise-1](https://github.com/codelix-org/phone-number-exercise-1).
-This exercise will be add the code to resolve the unhappy path.
+In this exercise you'll be adding the code that handles the unhappy path (i.e. we'll be giving it invalid numbers).
 
 Look at the specs in `spec/formatter/phone_number_spec.rb`.
 
