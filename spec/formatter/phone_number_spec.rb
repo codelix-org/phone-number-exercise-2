@@ -35,14 +35,14 @@ RSpec.describe Formatter::PhoneNumber do
       it 'raises an error when the number has an invalid prefix' do
         invalid_number = '17469484176'
 
-        expect{ Formatter::PhoneNumber.format(invalid_number) }.
+        expect{ Formatter::PhoneNumber.call(invalid_number) }.
           to raise_error(Formatter::PhoneNumber::InvalidPrefix, "Number: #{invalid_number}")
       end
 
       it 'raises an error when the number is empty' do
         invalid_number = ''
 
-        expect{ Formatter::PhoneNumber.format(invalid_number) }.
+        expect{ Formatter::PhoneNumber.call(invalid_number) }.
           to raise_error(Formatter::PhoneNumber::PhoneNumberEmpty, "Number: #{invalid_number}")
       end
 
@@ -51,7 +51,7 @@ RSpec.describe Formatter::PhoneNumber do
           invalid_number = '01469484176'
           expected_message = "Numbers must start with '7' after a valid prefix. Number: #{invalid_number}"
 
-          expect{ Formatter::PhoneNumber.format(invalid_number) }.
+          expect{ Formatter::PhoneNumber.call(invalid_number) }.
             to raise_error(Formatter::PhoneNumber::InvalidNumber, expected_message)
         end
 
@@ -59,7 +59,7 @@ RSpec.describe Formatter::PhoneNumber do
           invalid_number = '0700'
           expected_message = "Numbers must have 10 digits after a valid prefix. Number: #{invalid_number}"
 
-          expect{ Formatter::PhoneNumber.format(invalid_number) }.
+          expect{ Formatter::PhoneNumber.call(invalid_number) }.
             to raise_error(Formatter::PhoneNumber::NumberWrongLength, expected_message)
         end
 
@@ -67,7 +67,7 @@ RSpec.describe Formatter::PhoneNumber do
           invalid_number = '070007000700070007000700'
           expected_message = "Numbers must have 10 digits after a valid prefix. Number: #{invalid_number}"
 
-          expect{ Formatter::PhoneNumber.format(invalid_number) }.
+          expect{ Formatter::PhoneNumber.call(invalid_number) }.
             to raise_error(Formatter::PhoneNumber::NumberWrongLength, expected_message)
         end
 
@@ -75,7 +75,7 @@ RSpec.describe Formatter::PhoneNumber do
           invalid_number = '07non&num111'
           expected_message = "Numbers must only contain numeric values (after prefix). Number: #{invalid_number}"
 
-          expect{ Formatter::PhoneNumber.format(invalid_number) }.
+          expect{ Formatter::PhoneNumber.call(invalid_number) }.
             to raise_error(Formatter::PhoneNumber::InvalidCharacters, expected_message)
         end
       end
