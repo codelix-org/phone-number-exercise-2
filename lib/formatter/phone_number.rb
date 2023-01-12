@@ -6,20 +6,24 @@ module Formatter
   class PhoneNumber
     InvalidNumber = 'Error!'
 
-    def self.call(number)
-      number = remove_whitespace(number)
-      number = formats_area_code(number)
-    end
+    class << self
+      def call(number)
+        number = remove_whitespace(number)
+        formats_area_code(number)
+      end
 
-    def self.remove_whitespace(number)
-      number.gsub(' ', '')
-    end
+      private
 
-    def self.formats_area_code(number)
-      if number[0] == '+'
-        number.gsub("+44", '0')
-      else
-        number.gsub("44", '0')
+      def remove_whitespace(number)
+        number.gsub(' ', '')
+      end
+
+      def formats_area_code(number)
+        if number[0] == '+'
+          number.gsub('+44', '0')
+        else
+          number.gsub('44', '0')
+        end
       end
     end
   end
