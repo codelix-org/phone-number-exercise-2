@@ -19,11 +19,7 @@ module Formatter
       end
 
       def formats_area_code(number)
-        if number[0] == '+'
-          number.gsub('+44', '0')
-        else
-          number.gsub('44', '0')
-        end
+        number[0] == '+' ? number.gsub('+44', '0') : number.gsub('44', '0')
       end
     end
   end
