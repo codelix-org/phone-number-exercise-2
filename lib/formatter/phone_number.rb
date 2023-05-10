@@ -6,7 +6,11 @@ module Formatter
       formatted = number.gsub(/ /,'').gsub(/[+]/,'').gsub(/44/,'0')
 
       if formatted[0..1] == "07"
-        return formatted
+        if formatted.length == 11
+          return formatted
+        else
+          raise InvalidNumber
+        end
       else
        raise InvalidNumber
      end
