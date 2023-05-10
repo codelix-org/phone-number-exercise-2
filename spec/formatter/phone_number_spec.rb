@@ -1,4 +1,5 @@
 require_relative '../../lib/formatter/phone_number'
+require 'pry'
 
 RSpec.describe Formatter::PhoneNumber do
   describe '#call' do
@@ -41,7 +42,6 @@ RSpec.describe Formatter::PhoneNumber do
 
       it 'raises an error when the number is empty' do
         invalid_number = ''
-
         expect{ Formatter::PhoneNumber.call(invalid_number) }.
           to raise_error(Formatter::PhoneNumber::InvalidNumber)
       end
