@@ -8,8 +8,8 @@ module Formatter
       if formatted[0..1] == "07" && formatted.length == 11
         return formatted
       else
-       raise InvalidNumber
-     end
+        raise InvalidNumber
+      end
     end
   end
 end
