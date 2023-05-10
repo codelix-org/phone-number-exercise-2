@@ -1,7 +1,9 @@
 module Formatter
   class PhoneNumber
+    InvalidNumber = "Invalid number!"
+
     def self.call(number)
-      number.gsub(/ /,'').gsub(/[+]/,'').gsub(/44/,'0')
+      formatted = number.gsub(/ /,'').gsub(/[+]/,'').gsub(/44/,'0')
     end
   end
 end
